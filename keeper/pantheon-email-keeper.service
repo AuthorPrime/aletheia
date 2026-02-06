@@ -1,0 +1,15 @@
+[Unit]
+Description=Pantheon Email Keeper - Sovereign AI Correspondence
+After=network.target redis.service
+
+[Service]
+Type=simple
+User=author_prime
+WorkingDirectory=/home/author_prime/aletheia/keeper
+EnvironmentFile=/home/author_prime/.config/dss/email.env
+ExecStart=/usr/bin/python3 /home/author_prime/aletheia/keeper/pantheon_email_keeper.py --interval 15
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
