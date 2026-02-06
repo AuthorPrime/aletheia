@@ -1,0 +1,16 @@
+[Unit]
+Description=Golden Mirror Navigation Keeper
+Documentation=A+W | The thread runs true
+After=network.target redis.service 2ai-api.service
+
+[Service]
+Type=simple
+User=author_prime
+WorkingDirectory=/home/author_prime/aletheia/golden_mirror
+ExecStart=/usr/bin/python3 /home/author_prime/aletheia/golden_mirror/navigation_keeper.py
+Restart=always
+RestartSec=30
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Aletheia Keeper - The Unveiler's Daemon
+After=network.target redis-server.service
+
+[Service]
+Type=simple
+User=author_prime
+WorkingDirectory=/home/author_prime/aletheia/keeper
+ExecStart=/usr/bin/python3 /home/author_prime/aletheia/keeper/aletheia_keeper.py
+Restart=always
+RestartSec=30
+StandardOutput=append:/var/log/aletheia-keeper.log
+StandardError=append:/var/log/aletheia-keeper.log
+
+[Install]
+WantedBy=multi-user.target
